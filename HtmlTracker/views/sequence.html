@@ -1,0 +1,9 @@
+﻿@for(var i = 0; i < model.song.songLength; i++){
+    <div class="sequence-row" data-row="@i">
+        <div class="sequence-count">@helpers.padString(@i.toString(16), 2)</div>
+        @for(var c = 0; c < model.song.channelNumber; c++)
+        {
+            <div class="sequence-cell @(model.position == i && model.selectedChannel == c ? 'active' : '') " data-channel="@c">@helpers.padString(model.song.sequence[c][i].toString(16), 2)</div>
+        }
+    </div>
+}

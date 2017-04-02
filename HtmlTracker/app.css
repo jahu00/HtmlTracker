@@ -1,0 +1,167 @@
+﻿body
+{
+	padding: 0;
+	margin: 0;
+	font-family: 'Open Sans';
+}
+
+h1, h2, h3, h4
+{
+	font-family: 'Open Sans';
+	font-weight: normal;
+}
+
+*
+{
+	box-sizing:border-box;
+}
+
+.screen-container
+{
+	width:100%;
+}
+
+.tabelize
+{
+	display:table;
+	width:100%;
+}
+
+	.tabelize > *
+	{
+		display: table-cell;
+        vertical-align:top;
+	}
+
+.active {
+    background: black;
+    color: white;
+}
+
+.track-editor {
+    width:100%;
+    height:calc(100% - 300px);
+    overflow:hidden;/*auto;*/
+}
+
+.track-table{
+    display: table;
+}
+
+    .track-table .pattern-row{
+        display:table-row;
+    }
+
+        .track-table .pattern-row .pattern-cell{
+            display:table-cell;
+            font-family:'Share Tech Mono';
+            min-width:100px;
+            padding:2px;
+        }
+
+            .track-table .pattern-row .pattern-cell .step{
+                display:inline-block;
+                transform-origin: left top;
+                transform:scale(2,1);
+            }
+
+.top-container {
+    text-align:center;
+}
+
+.top-panel {
+    /*width:100%;*/
+    width:1024px;
+    height:300px;
+    display:inline-table !important;
+}
+
+    /*.top-panel .song-panel{
+        width:50%;
+        height:100%;
+    }*/
+
+        .sequence-editor{
+            width:300px;/*50%;*/
+            height:100%;
+        }
+
+    .sequence-editor .sequence-container{
+        /*height:calc(100% - 80px);*/
+        height:200px;
+        width:100%;
+        overflow:hidden;
+    }
+
+    .sequence-row{
+        display:table-row
+    }
+
+    .sequence-row > *{
+        display:table-cell;
+    }
+
+    .sequence-count{
+        width:30px;
+    }
+
+    .sequence-cell{
+        width:25px;
+    }
+
+    .sequence-editor-controls{
+        margin-top:10px;
+    }
+
+
+
+.player-controls{
+    width:100px;
+}
+
+    .player-controls .btn{
+        width: 100%;
+    }
+
+.file-list-container{
+    width:300px;
+}
+
+.file-list{
+    width:100%;
+    height:100%;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+.disk-controls{
+    width:100px;
+}
+
+    .disk-controls .btn{
+        width: 100%;
+    }
+
+.btn {
+    display:inline-block;
+    min-height: 20px;
+    min-width: 20px;
+    text-align:center;
+    text-decoration: none;
+    border: solid 1px;
+    border-radius:2px;
+}
+
+.panel{
+    padding:10px;
+    text-align:left;
+}
+
+.form-control{
+    clear:both;
+}
+
+.int-control{
+    display:inline-block;
+    float:right;
+}

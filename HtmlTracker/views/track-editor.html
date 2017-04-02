@@ -1,0 +1,16 @@
+﻿<div class="track-table">
+@for(var i = 0; i < model.song.patternLength; i++){
+    <div class="pattern-row @(i % model.song.measureLength == 0 ? 'forground-2' : '')" data-step="@i">
+        @for(var c = 0; c < model.song.channelNumber; c++)
+        {
+            var note = model.song.patterns[c][model.song.sequence[c][model.position]][i];
+            <div class="pattern-cell" data-channel="@c">
+                <span class="step-count">@helpers.padString(@i.toString(16), 2)</span>&nbsp;
+                <span class="step">
+                    @html.raw(window.viewEngine.renderView('note.html', note))
+                </span>
+            </div>
+        }
+    </div>
+}
+</div>

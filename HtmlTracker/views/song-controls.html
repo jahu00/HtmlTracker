@@ -1,0 +1,15 @@
+﻿<div class="speed form-control">
+    BPM @html.raw(window.viewEngine.renderView('int-control.html', model.song.speed))
+</div>
+<div class="measure-length form-control">
+    Spd. @html.raw(window.viewEngine.renderView('int-control.html', model.song.measureLength))
+</div>
+<div class="pattern-length form-control">
+    Pat. @html.raw(window.viewEngine.renderView('int-control.html', model.song.patternLength))
+</div>
+<div class="octave form-control">
+    Oct. @html.raw(window.viewEngine.renderView('int-control.html', model.octave))
+</div>
+<div class="step-increment form-control">
+    Step @html.raw(window.viewEngine.renderView('int-control.html', model.stepIncrement))
+</div>

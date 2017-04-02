@@ -1,0 +1,15 @@
+﻿<div class="top-container background-2">
+    <div class="top-panel tabelize">
+        <!--<div class="left">
+            <div class="song-panel tabelize">-->
+                @html.raw(window.viewEngine.renderView('song-panel.html', model))
+            <!--</div>
+        </div>-->
+        <!--<div class="right">-->
+            @html.raw(window.viewEngine.renderView('disk-editor.html', model))
+        <!--</div>-->
+    </div>
+</div>
+<div class="track-editor style-1">
+    @html.raw(window.viewEngine.renderView('track-editor.html', model))
+</div>

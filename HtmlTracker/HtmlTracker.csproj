@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{8008F29B-8A5F-4F5B-A807-34576CAE0B09}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="app.css" />
+    <Content Include="class\audio-context-wrapper.js">
+      <DependentUpon>audio-context-wrapper.ts</DependentUpon>
+    </Content>
+    <Content Include="class\channel.js">
+      <DependentUpon>channel.ts</DependentUpon>
+    </Content>
+    <Content Include="class\editor.js">
+      <DependentUpon>editor.ts</DependentUpon>
+    </Content>
+    <Content Include="class\note.js">
+      <DependentUpon>note.ts</DependentUpon>
+    </Content>
+    <Content Include="class\pattern.js">
+      <DependentUpon>pattern.ts</DependentUpon>
+    </Content>
+    <Content Include="class\player.js">
+      <DependentUpon>player.ts</DependentUpon>
+    </Content>
+    <Content Include="class\renderer.js">
+      <DependentUpon>renderer.ts</DependentUpon>
+    </Content>
+    <Content Include="class\song.js">
+      <DependentUpon>song.ts</DependentUpon>
+    </Content>
+    <Content Include="const.js">
+      <DependentUpon>const.ts</DependentUpon>
+    </Content>
+    <Content Include="fonts\open-sans\LICENSE.txt" />
+    <Content Include="fonts\open-sans\open-sans.css" />
+    <Content Include="fonts\share-tech-mono\OFL.txt" />
+    <Content Include="fonts\share-tech-mono\share-tech-mono.css" />
+    <Content Include="helpers.js" />
+    <Content Include="index.html" />
+    <Content Include="libs\jquery\jquery-1.8.2.min.js" />
+    <Content Include="fonts\open-sans\OpenSans-Bold.ttf" />
+    <Content Include="fonts\open-sans\OpenSans-BoldItalic.ttf" />
+    <Content Include="fonts\open-sans\OpenSans-ExtraBold.ttf" />
+    <Content Include="fonts\open-sans\OpenSans-ExtraBoldItalic.ttf" />
+    <Content Include="fonts\open-sans\OpenSans-Italic.ttf" />
+    <Content Include="fonts\open-sans\OpenSans-Light.ttf" />
+    <Content Include="fonts\open-sans\OpenSans-LightItalic.ttf" />
+    <Content Include="fonts\open-sans\OpenSans-Regular.ttf" />
+    <Content Include="fonts\open-sans\OpenSans-Semibold.ttf" />
+    <Content Include="fonts\open-sans\OpenSans-SemiboldItalic.ttf" />
+    <Content Include="fonts\share-tech-mono\ShareTechMono-Regular.ttf" />
+    <None Include="libs\jquery\jquery-3.1.1.intellisense.js" />
+    <Content Include="libs\jquery\jquery-3.1.1.js" />
+    <Content Include="libs\jquery\jquery-3.1.1.min.js" />
+    <Content Include="libs\jquery\jquery-3.1.1.slim.js" />
+    <Content Include="libs\jquery\jquery-3.1.1.slim.min.js" />
+    <Content Include="libs\less\less.js" />
+    <Content Include="libs\less\less.min.js" />
+    <Content Include="libs\vash\vash-runtime-all.js" />
+    <Content Include="libs\vash\vash-runtime.js" />
+    <Content Include="libs\vash\vash.js" />
+    <Content Include="libs\xxhash\xxhash.lmd.js" />
+    <Content Include="libs\xxhash\xxhash.min.lmd.js" />
+    <Content Include="views\disk-editor.html" />
+    <Content Include="views\file-list.html" />
+    <Content Include="views\int-control.html" />
+    <Content Include="views\layout.html" />
+    <Content Include="views\song-controls.html" />
+    <Content Include="views\song-panel.html" />
+    <Content Include="views\sequence-editor.html" />
+    <Content Include="views\note.html" />
+    <Content Include="views\sequence.html" />
+    <Content Include="views\track-editor.html" />
+    <Content Include="web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="app.ts" />
+    <TypeScriptCompile Include="class\audio-context-wrapper.ts" />
+    <TypeScriptCompile Include="class\channel.ts" />
+    <TypeScriptCompile Include="class\editor.ts" />
+    <TypeScriptCompile Include="class\note.ts" />
+    <TypeScriptCompile Include="class\pattern.ts" />
+    <TypeScriptCompile Include="class\player.ts" />
+    <TypeScriptCompile Include="class\renderer.ts" />
+    <TypeScriptCompile Include="class\song.ts" />
+    <TypeScriptCompile Include="const.ts" />
+    <TypeScriptCompile Include="libs\view-engine.ts" />
+    <TypeScriptCompile Include="typings\jquery\jquery.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="libs\jquery\jquery-3.1.1.min.map" />
+    <Content Include="libs\jquery\jquery-3.1.1.slim.min.map" />
+    <Content Include="libs\vash\LICENSE" />
+    <Content Include="libs\less\LICENSE" />
+    <Content Include="style.less" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>HtmlTracker</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50391</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50391/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+</Project>

@@ -1,0 +1,16 @@
+﻿<div class="sequence-container style-1 panel">
+    <div class="sequence">
+        @html.raw(window.viewEngine.renderView('sequence.html', model))
+    </div>
+</div>
+<div class="sequence-editor-controls">
+    <div class="position form-control">
+        Pos. @html.raw(window.viewEngine.renderView('int-control.html', model.position.toString()))
+    </div>
+    <div class="song-length form-control">
+        Len. @html.raw(window.viewEngine.renderView('int-control.html', model.song.songLength))
+    </div>
+    <div class="channel-number form-control">
+        Ch. @html.raw(window.viewEngine.renderView('int-control.html', model.song.channelNumber))
+    </div>
+</div>

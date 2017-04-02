@@ -1,0 +1,7 @@
+﻿@for(var key in model){
+    if (model.hasOwnProperty(key))
+    {
+        var file = model[key];
+        <div class="file-row" data-code="@file.code">@file.name</div>
+    }
+}

@@ -1,0 +1,13 @@
+﻿<div class="sequence-editor style-2 panel">
+    @html.raw(window.viewEngine.renderView('sequence-editor.html', model))
+</div>
+<div class="song-controls style-2 panel">
+    @html.raw(window.viewEngine.renderView('song-controls.html', model))
+</div>
+<div class="player-controls style-2 panel">
+    <a class="style-3 btn play-song-btn" href="#">Play sng.</a><br />
+    <a class="style-3 btn play-pattern-btn" href="#">Play ptn.</a><br/>
+    <a class="style-3 btn play-cursor-btn" href="#">Play cur.</a><br />
+    <!--<a class="style-3 btn pause-btn" href="#">Pause</a><br />-->
+    <a class="style-3 btn stop-btn" href="#">Stop</a><br />
+</div>

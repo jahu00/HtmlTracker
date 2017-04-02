@@ -1,0 +1,12 @@
+﻿@if (model.value > 0)
+{
+    <span class="tone">@(model.tone.length == 1 ? model.tone + "-" : model.tone)</span><span class="octave">@model.octave</span>
+}
+else if (model.value == -1)
+{
+    @:===
+}
+else
+{
+    @:...
+}

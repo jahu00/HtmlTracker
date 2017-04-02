@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>HtmlTracker</title>
+    <link rel="stylesheet" href="fonts/share-tech-mono/share-tech-mono.css" type="text/css" />
+    <link rel="stylesheet" href="app.css" type="text/css" />
+    <link rel="stylesheet/less" href="style.less" type="text/css" />
+    <script src="libs/less/less.min.js"></script>
+    <script src="libs/jquery/jquery-3.1.1.min.js"></script>
+    <script src="libs/xxhash/xxhash.min.lmd.js"></script>
+    <script src="libs/vash/vash.js"></script>
+    <script src="libs/view-engine.js"></script>
+    <script src="const.js"></script>
+    <script src="class/audio-context-wrapper.js"></script>
+    <script src="class/note.js"></script>
+    <script src="class/pattern.js"></script>
+    <script src="class/channel.js"></script>
+    <script src="class/song.js"></script>
+    <script src="class/player.js"></script>
+    <script src="class/editor.js"></script>
+    <script src="helpers.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+    <div id="content"></div>
+    <script>
+        $(function () {
+            window.viewEngine = new ViewEngine("views");
+            window.app = new App();
+        });
+    </script>
+</body>
+</html>
