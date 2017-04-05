@@ -33,7 +33,6 @@ class Player {
         if (value < this.channels.length) {
             for (let i = value; i < this.channels.length; i++) {
                 this.channels[i].stop();
-                this.channels[i].disconnect();
             }
             this.channels.length = value;
             return;

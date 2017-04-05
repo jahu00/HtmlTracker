@@ -43,9 +43,6 @@ var Channel = (function () {
             }, duration);
         }
     };
-    Channel.prototype.disconnect = function () {
-        this.oscilator.diconnect();
-    };
     Channel.prototype.newOscilator = function () {
         if (this.oscilator != null) {
             this.killOscilator();

@@ -31,7 +31,6 @@ var Player = (function () {
         if (value < this.channels.length) {
             for (var i = value; i < this.channels.length; i++) {
                 this.channels[i].stop();
-                this.channels[i].disconnect();
             }
             this.channels.length = value;
             return;

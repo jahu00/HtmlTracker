@@ -46,10 +46,6 @@ class Channel {
         }
     }
 
-    disconnect() {
-        this.oscilator.diconnect();
-    }
-
     newOscilator() {
         if (this.oscilator != null) {
             this.killOscilator();
