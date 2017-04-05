@@ -101,15 +101,20 @@ var Editor = (function () {
             return this._position;
         },
         set: function (value) {
-            if (value < 0) {
+            /*if (value < 0) {
                 value = 0;
             }
             if (value >= this.song.songLength) {
                 value = this.song.songLength - 1;
+            }*/
+            while (value < 0) {
+                value += this.song.songLength;
             }
+            value = value % this.song.songLength;
             if (value != this._position) {
                 this._position = value;
                 this.drawTrackEditor();
+                this.drawSequenceEditor();
                 this.step = 0;
             }
         },
@@ -246,7 +251,7 @@ var Editor = (function () {
                 if (!isNaN(newOctave) && newOctave >= 0 && newOctave <= 8) {
                     selectedNote.octave = newOctave;
                     self.drawSelectedNote();
-                    self.app.player.channels[self.selectedChannel].playNote(selectedNote, 1000);
+                    self.beepNote(selectedNote);
                     self.adjustPosition();
                 }
             }
