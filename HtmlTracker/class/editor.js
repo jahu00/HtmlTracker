@@ -113,8 +113,9 @@ var Editor = (function () {
             value = value % this.song.songLength;
             if (value != this._position) {
                 this._position = value;
-                this.drawTrackEditor();
-                this.drawSequenceEditor();
+                this.drawTrackEditor(false);
+                this.drawSequenceEditor(false);
+                this.adjustPosition();
                 this.step = 0;
             }
         },
@@ -285,7 +286,9 @@ var Editor = (function () {
             if (e.key == "PageUp") {
                 if (self.song.sequence[self.selectedChannel][self.position] > 0) {
                     self.song.sequence[self.selectedChannel][self.position]--;
-                    self.draw();
+                    self.drawTrackEditor(false);
+                    self.drawSequenceEditor(false);
+                    self.adjustPosition();
                 }
             }
             if (e.key == "PageDown") {
@@ -293,7 +296,9 @@ var Editor = (function () {
                 if (self.song.patterns[self.selectedChannel].length <= self.song.sequence[self.selectedChannel][self.position]) {
                     self.song.patterns[self.selectedChannel].push(new Pattern(self.song.patternLength));
                 }
-                self.draw();
+                self.drawTrackEditor(false);
+                self.drawSequenceEditor(false);
+                self.adjustPosition();
             }
             //console.log(e.key);
         });
@@ -364,25 +369,38 @@ var Editor = (function () {
         this.position = position;
         this.step = step;
     }*/
-    Editor.prototype.draw = function () {
+    Editor.prototype.draw = function (adjustPosition) {
+        if (adjustPosition === void 0) { adjustPosition = true; }
         this.$screen.html(window.viewEngine.renderView("layout.html", this));
-        this.adjustPosition();
+        if (adjustPosition) {
+            this.adjustPosition();
+        }
     };
-    Editor.prototype.drawTrackEditor = function () {
+    Editor.prototype.drawTrackEditor = function (adjustPosition) {
+        if (adjustPosition === void 0) { adjustPosition = true; }
         this.$screen.find('.track-editor').html(window.viewEngine.renderView("track-editor.html", this));
         this.adjustPosition();
     };
-    Editor.prototype.drawSongPanel = function () {
+    Editor.prototype.drawSongPanel = function (adjustPosition) {
+        if (adjustPosition === void 0) { adjustPosition = true; }
         this.$screen.find('.song-panel').html(window.viewEngine.renderView("song-panel.html", this));
-        this.adjustPosition();
+        if (adjustPosition) {
+            this.adjustPosition();
+        }
     };
-    Editor.prototype.drawSongControls = function () {
+    Editor.prototype.drawSongControls = function (adjustPosition) {
+        if (adjustPosition === void 0) { adjustPosition = true; }
         this.$screen.find('.song-controls').html(window.viewEngine.renderView("song-controls.html", this));
-        this.adjustPosition();
+        if (adjustPosition) {
+            this.adjustPosition();
+        }
     };
-    Editor.prototype.drawSequenceEditor = function () {
+    Editor.prototype.drawSequenceEditor = function (adjustPosition) {
+        if (adjustPosition === void 0) { adjustPosition = true; }
         this.$screen.find('.sequence-editor').html(window.viewEngine.renderView("sequence-editor.html", this));
-        this.adjustPosition();
+        if (adjustPosition) {
+            this.adjustPosition();
+        }
     };
     Editor.prototype.drawSelectedNote = function () {
         this.$screen.find('.track-editor .pattern-row[data-step=' + this.step + '] .pattern-cell[data-channel=' + this.selectedChannel + '] .step').html(window.viewEngine.renderView("note.html", this.selectedNote));

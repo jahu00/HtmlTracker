@@ -105,8 +105,9 @@ class Editor {
         value = value % this.song.songLength;
         if (value != this._position) {
             this._position = value;
-            this.drawTrackEditor();
-            this.drawSequenceEditor();
+            this.drawTrackEditor(false);
+            this.drawSequenceEditor(false);
+            this.adjustPosition();
             this.step = 0;
         }
     }
@@ -284,7 +285,9 @@ class Editor {
             if (e.key == "PageUp") {
                 if (self.song.sequence[self.selectedChannel][self.position] > 0) {
                     self.song.sequence[self.selectedChannel][self.position]--;
-                    self.draw();
+                    self.drawTrackEditor(false);
+                    self.drawSequenceEditor(false);
+                    self.adjustPosition();
                 }
             }
 
@@ -293,7 +296,9 @@ class Editor {
                 if (self.song.patterns[self.selectedChannel].length <= self.song.sequence[self.selectedChannel][self.position]) {
                     self.song.patterns[self.selectedChannel].push(new Pattern(self.song.patternLength));
                 }
-                self.draw();
+                self.drawTrackEditor(false);
+                self.drawSequenceEditor(false);
+                self.adjustPosition();
             }
 
             //console.log(e.key);
@@ -379,29 +384,37 @@ class Editor {
         this.step = step;
     }*/
 
-    draw() {
+    draw(adjustPosition: boolean = true) {
         this.$screen.html(window.viewEngine.renderView("layout.html", this));
-        this.adjustPosition();
+        if (adjustPosition) {
+            this.adjustPosition();
+        }
     }
 
-    drawTrackEditor() {
+    drawTrackEditor(adjustPosition: boolean = true) {
         this.$screen.find('.track-editor').html(window.viewEngine.renderView("track-editor.html", this));
         this.adjustPosition();
     }
 
-    drawSongPanel() {
+    drawSongPanel(adjustPosition: boolean = true) {
         this.$screen.find('.song-panel').html(window.viewEngine.renderView("song-panel.html", this));
-        this.adjustPosition();
+        if (adjustPosition) {
+            this.adjustPosition();
+        }
     }
 
-    drawSongControls() {
+    drawSongControls(adjustPosition: boolean = true) {
         this.$screen.find('.song-controls').html(window.viewEngine.renderView("song-controls.html", this));
-        this.adjustPosition();
+        if (adjustPosition) {
+            this.adjustPosition();
+        }
     }
 
-    drawSequenceEditor() {
+    drawSequenceEditor(adjustPosition: boolean = true) {
         this.$screen.find('.sequence-editor').html(window.viewEngine.renderView("sequence-editor.html", this));
-        this.adjustPosition();
+        if (adjustPosition) {
+            this.adjustPosition();
+        }
     }
 
     drawSelectedNote() {
