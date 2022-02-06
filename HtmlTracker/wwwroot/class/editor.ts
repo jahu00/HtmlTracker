@@ -212,9 +212,9 @@ class Editor {
         this.initIntControl(".step-increment", "stepIncrement");
 
         $(window).resize(function () { self.scrollTrackEditor(); });
-        $('body').keypress(function (e) {
+        $('body').keydown(function (e) {
             e.preventDefault();
-
+            console.log(e);
             var selectedNote = self.selectedNote;
 
             if (self.selectedElement == elementMap.indexOf("step") && e.key.length == 1 && typeof keyMap[e.key] != "undefined") {

@@ -10,16 +10,16 @@ var frequencies = [
     2093, 2217, 2349, 2489, 2637, 2794, 2960, 3136, 3322, 3520, 3729, 3951,
     4186, 4434, 4698, 4978, 5274, 5588, 5920, 6272, 6644, 7040, 7458, 7902,
 ];
-var Channel = (function () {
-    function Channel() {
+class Channel {
+    constructor() {
         this.oscilator = null;
         this.note = 0;
     }
-    Channel.prototype.stop = function () {
+    stop() {
         this.killOscilator();
         this.note = 0;
-    };
-    Channel.prototype.playNote = function (note, duration) {
+    }
+    playNote(note, duration) {
         var self = this;
         if (typeof note == "object") {
             note = note.value;
@@ -42,22 +42,21 @@ var Channel = (function () {
                 self.stop();
             }, duration);
         }
-    };
-    Channel.prototype.newOscilator = function () {
+    }
+    newOscilator() {
         if (this.oscilator != null) {
             this.killOscilator();
         }
         this.oscilator = window.getAudioContext().createOscillator();
         this.oscilator.connect(window.getAudioContext().destination);
         this.oscilator.type = 'square';
-    };
-    Channel.prototype.killOscilator = function () {
+    }
+    killOscilator() {
         if (this.oscilator != null) {
             this.oscilator.stop();
             this.oscilator.disconnect();
             this.oscilator = null;
         }
-    };
-    return Channel;
-}());
+    }
+}
 //# sourceMappingURL=channel.js.map

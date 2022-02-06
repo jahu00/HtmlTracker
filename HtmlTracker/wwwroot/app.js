@@ -1,5 +1,5 @@
-var App = (function () {
-    function App() {
+class App {
+    constructor() {
         var self = this;
         this.$screen = $("#content");
         window.onresize = function () { self.onScreenResize(); };
@@ -7,9 +7,8 @@ var App = (function () {
         this.player = new Player();
         this.editor = new Editor(this.$screen, this);
     }
-    App.prototype.onScreenResize = function () {
+    onScreenResize() {
         this.$screen.css("height", window.innerHeight + "px");
-    };
-    return App;
-}());
+    }
+}
 //# sourceMappingURL=app.js.map

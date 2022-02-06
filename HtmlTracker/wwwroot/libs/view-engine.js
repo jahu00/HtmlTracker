@@ -1,14 +1,12 @@
 /**
 * Helper class for vash views. Pulls views using sync XHR and caches them for future use.
 */
-var ViewEngine = (function () {
+class ViewEngine {
     /**
     * @param _defaultPath Instructs ViewEngine where to look for the views (defaults to ".")
     * @param _cacheViews Enables/disables caching of views (defaults to true)
     */
-    function ViewEngine(defaultPath, cacheViews) {
-        if (defaultPath === void 0) { defaultPath = "."; }
-        if (cacheViews === void 0) { cacheViews = true; }
+    constructor(defaultPath = ".", cacheViews = true) {
         this.defaultPath = defaultPath;
         this.cacheViews = cacheViews;
         this.views = {};
@@ -19,7 +17,7 @@ var ViewEngine = (function () {
     * @param viewName Name of the view
     * @param model Model to be used for rendering the view
     */
-    ViewEngine.prototype.renderView = function (viewName, model) {
+    renderView(viewName, model) {
         var view = {};
         var viewPath = this.defaultPath + "/" + viewName;
         if (!this.cacheViews || typeof this.views[viewPath] == "undefined") {
@@ -36,7 +34,6 @@ var ViewEngine = (function () {
             view.template = window.vash.compile(view.raw);
         }
         return view.template(model);
-    };
-    return ViewEngine;
-}());
+    }
+}
 //# sourceMappingURL=view-engine.js.map

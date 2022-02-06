@@ -3,25 +3,21 @@ var PlayerState;
     PlayerState[PlayerState["Paused"] = 1] = "Paused";
     PlayerState[PlayerState["Playing"] = 2] = "Playing";
 })(PlayerState || (PlayerState = {}));
-var Player = (function () {
-    function Player() {
+class Player {
+    constructor() {
         this.state = PlayerState.Paused;
         this.channels = [];
         this.position = 0;
         this.step = 0;
     }
-    Object.defineProperty(Player.prototype, "song", {
-        get: function () {
-            return this._song;
-        },
-        set: function (value) {
-            this._song = value;
-            this.adjustChannelNumber();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Player.prototype.adjustChannelNumber = function (value) {
+    get song() {
+        return this._song;
+    }
+    set song(value) {
+        this._song = value;
+        this.adjustChannelNumber();
+    }
+    adjustChannelNumber(value) {
         if (typeof value == "undefined") {
             value = this.song.channelNumber;
         }
@@ -29,19 +25,17 @@ var Player = (function () {
             return;
         }
         if (value < this.channels.length) {
-            for (var i = value; i < this.channels.length; i++) {
+            for (let i = value; i < this.channels.length; i++) {
                 this.channels[i].stop();
             }
             this.channels.length = value;
             return;
         }
-        for (var i = this.channels.length; i < value; i++) {
+        for (let i = this.channels.length; i < value; i++) {
             this.channels.push(new Channel());
         }
-    };
-    Player.prototype.play = function (position, step, callback) {
-        if (position === void 0) { position = 0; }
-        if (step === void 0) { step = 0; }
+    }
+    play(position = 0, step = 0, callback) {
         if (typeof position != "undefined") {
             this.position = position;
         }
@@ -51,11 +45,11 @@ var Player = (function () {
         this.adjustChannelNumber();
         this.state = PlayerState.Playing;
         this.playStep(callback);
-    };
-    Player.prototype.playStep = function (callback) {
+    }
+    playStep(callback) {
         var self = this;
         if (this.state == PlayerState.Playing) {
-            for (var i = 0; i < this.channels.length; i++) {
+            for (let i = 0; i < this.channels.length; i++) {
                 this.channels[i].playNote(this.song.patterns[i][this.song.sequence[i][this.position]][this.step].value);
             }
             setTimeout(function () {
@@ -75,18 +69,16 @@ var Player = (function () {
                 }
             }, Math.floor(60000 / this.song.speed / this.song.measureLength));
         }
-    };
-    Player.prototype.stop = function () {
+    }
+    stop() {
         this.state = PlayerState.Paused;
-        for (var _i = 0, _a = this.channels; _i < _a.length; _i++) {
-            var channel = _a[_i];
+        for (let channel of this.channels) {
             channel.stop();
         }
-    };
-    Player.prototype.playNote = function (note, channel, duration) {
+    }
+    playNote(note, channel, duration) {
         this.adjustChannelNumber();
         this.channels[channel].playNote(note, duration);
-    };
-    return Player;
-}());
+    }
+}
 //# sourceMappingURL=player.js.map
