@@ -117,23 +117,47 @@ h1, h2, h3, h4
         margin-top:10px;
     }
 
+.song-controls {
+    width: 200px;
+}
 
-
-.player-controls{
-    width:100px;
+.player-controls {
+    width: 100px;
 }
 
     .player-controls .btn{
         width: 100%;
     }
 
-.file-list-container{
-    width:300px;
+.right-panel {
+    height: 100%;
 }
+
+.settings-panel{
+    width:424px;
+    display: none;
+}
+
+#content.show-settings .settings-panel {
+    display: block;
+}
+
+#content.show-settings .disk-container {
+    display: none;
+}
+
+.disk-container {
+    height: 100%;
+}
+
+/*.file-list-container {
+    width: 300px;
+}*/
 
 .file-list{
     width:100%;
-    height:100%;
+    /*height:100%;*/
+    height: 280px;
     overflow-x:hidden;
     overflow-y:auto;
 }

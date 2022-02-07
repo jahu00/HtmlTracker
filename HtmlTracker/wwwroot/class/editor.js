@@ -331,6 +331,12 @@ class Editor {
                 self.draw();
             }
         });
+        this.$screen.on("click", '.settings-btn', function (e) {
+            self.showSettings();
+        });
+        this.$screen.on("click", '.disk-btn', function (e) {
+            self.showDisk();
+        });
     }
     /*setPosition(position: number, step: number) {
         this.position = position;
@@ -452,6 +458,14 @@ class Editor {
             duration = this.beepDuration;
         }
         this.app.player.playNote(note, this.selectedChannel, duration);
+    }
+    showSettings() {
+        if (!this.$screen.hasClass("show-settings")) {
+            this.$screen.addClass("show-settings");
+        }
+    }
+    showDisk() {
+        this.$screen.removeClass("show-settings");
     }
     getFileNames() {
         if (typeof localStorage["song-list"] == "undefined") {

@@ -5,9 +5,10 @@
                 @html.raw(window.viewEngine.renderView('song-panel.html', model))
             <!--</div>
         </div>-->
-        <!--<div class="right">-->
+        <div class="right-panel">
             @html.raw(window.viewEngine.renderView('disk-editor.html', model))
-        <!--</div>-->
+            @html.raw(window.viewEngine.renderView('settings.html', model))
+        </div>
     </div>
 </div>
 <div class="track-editor style-1">
