@@ -1,70 +1,71 @@
-﻿@background-1: #000000;
-@background-2: #1F508B;
-@background-3: #9494B2;
-@forground-1: #A1D8FE;
-@forground-2: #FFFFFF;
-@forground-3: #000000;
-
+﻿:root {
+    --background-1: #000000;
+    --background-2: #1F508B;
+    --background-3: #9494B2;
+    --forground-1: #A1D8FE;
+    --forground-2: #FFFFFF;
+    --forground-3: #000000;
+}
 .background-1{
-    background: @background-1;
+    background: var(--background-1);
 }
 
 .background-2{
-    background: @background-2;
+    background: var(--background-2);
 }
 
 .forground-1{
-    color: @forground-1;
+    color: var(--forground-1);
 }
 
 .forground-2{
-    color: @forground-2;
+    color: var(--forground-2);
 }
 
 .forground-3{
-    color: @forground-2;
+    color: var(--forground-2);
 }
 
 
 .style-1{
-    background: @background-1;
-    color: @forground-1;
+    background: var(--background-1);
+    color: var(--forground-1);
 }
 
 .style-2{
-    background: @background-2;
-    color: @forground-2;
+    background: var(--background-2);
+    color: var(--forground-2);
 }
 
 .style-3{
-    background: @background-3;
-    color: @forground-3;
+    background: var(--background-3);
+    color: var(--forground-3);
 }
 
 
 .style-1.panel {
-    box-shadow:inset -1px -1px 0 @forground-1;
+    box-shadow:inset -1px -1px 0 var(--forground-1);
     padding:0;
 }
 
 .style-2.panel {
     box-shadow:
-        inset -1px -1px 0 @forground-3,
-        inset 1px 1px 0 @forground-1;
+        inset -1px -1px 0 var(--forground-3),
+        inset 1px 1px 0 var(--forground-1);
 }
 
 .style-1 .active {
-    background: @background-2;
-    color: @forground-2;
+    background: var(--background-2);
+    color: var(--forground-2);
 }
 
 .style-1 .active .active{
-    background: @background-1;
-    color: @forground-1;
+    background: var(--background-1);
+    color: var(--forground-1);
 }
 
 .style-3.btn {
-    border-color: @forground-3;
-    box-shadow:inset 1px 1px 0 @forground-2;
+    border-color: var(--forground-3);
+    box-shadow:inset 1px 1px 0 var(--forground-2);
 }
 

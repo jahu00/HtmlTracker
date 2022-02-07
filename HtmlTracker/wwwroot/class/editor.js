@@ -1,4 +1,4 @@
-var elementMap = ["step", "tone", "octave"];
+const elementMap = ["step", "tone", "octave"];
 class Editor {
     constructor($screen, app) {
         this.$screen = $screen;
@@ -184,7 +184,6 @@ class Editor {
         $(window).resize(function () { self.scrollTrackEditor(); });
         $('body').keydown(function (e) {
             e.preventDefault();
-            console.log(e);
             var selectedNote = self.selectedNote;
             if (self.selectedElement == elementMap.indexOf("step") && e.key.length == 1 && typeof keyMap[e.key] != "undefined") {
                 selectedNote.value = 12 * self.octave + keyMap[e.key] + 1;

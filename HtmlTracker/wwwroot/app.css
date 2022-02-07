@@ -42,10 +42,14 @@ h1, h2, h3, h4
     width:100%;
     height:calc(100% - 300px);
     overflow:hidden;/*auto;*/
+    position:relative;
 }
 
 .track-table{
     display: table;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
     .track-table .pattern-row{
